@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.User;
+import com.example.demo.models.DTO.UserDTO;
 import com.example.demo.services.UserService;
 
 @RestController
@@ -29,9 +30,9 @@ public class UserController {
     }  
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity findById(@PathVariable Long id){
-        User user = userService.findById(id);
-        return ResponseEntity.ok().body(user);
+    public ResponseEntity<UserDTO> findById(@PathVariable Long id){
+        UserDTO userDTO = userService.findById(id);
+        return ResponseEntity.ok().body(userDTO);
     }
 
     @GetMapping

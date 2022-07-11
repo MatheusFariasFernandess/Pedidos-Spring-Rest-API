@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.models.User;
+import com.example.demo.models.DTO.UserDTO;
 import com.example.demo.repository.UserRepository;
 
 @Service
@@ -24,8 +25,9 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public User findById(Long id){
-        Optional<User> user = userRepository.findById(id);
-        return user.get(); 
+    public UserDTO findById(Long id){
+        User user = userRepository.findById(id).get();
+        UserDTO userDTO = new UserDTO(user);
+        return userDTO; 
     } 
 }

@@ -22,10 +22,15 @@ public class UserDTO implements Serializable {
     private String username;
 
     public UserDTO(){}
+
+    public UserDTO(Long id,String username){
+        this.id=id;
+        this.username=username;
+    }
     
     public UserDTO(User user){
-         user.setId(id);
-         user.setUsername(username);   
+         this.id=user.getId();
+         this.username=user.getUsername();
     }
 
     /**
