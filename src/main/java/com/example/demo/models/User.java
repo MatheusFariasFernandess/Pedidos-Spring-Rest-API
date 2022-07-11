@@ -3,6 +3,7 @@ package com.example.demo.models;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,6 +26,9 @@ public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @OneToMany(mappedBy = "userId")
+    private List<Adress>adresses = new ArrayList<Adress>();
     
     private String username;
     private String email;
@@ -87,6 +91,10 @@ public class User implements Serializable{
 
     public List<Order> getOrders() {
         return orders;
+    }
+
+    public List<Adress> getAdress(){
+        return adresses;
     }
     
 }
