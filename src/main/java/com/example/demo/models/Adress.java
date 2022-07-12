@@ -1,5 +1,9 @@
 package com.example.demo.models;
 
+import java.io.Serializable;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -7,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Adress {
+public class Adress implements Serializable{
     
     @Id
     private Integer id;

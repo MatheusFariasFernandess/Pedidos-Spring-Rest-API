@@ -1,17 +1,18 @@
 package com.example.demo.models;
 
 import java.io.Serializable;
-
-import jakarta.persistence.Embedded;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.models.modelsPK.OrderItemPK;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 
 @Entity
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable {
-    
+    private static final Long serialVersionUID = 1L;
+
     @EmbeddedId
     private OrderItemPK id;
 
@@ -28,17 +29,22 @@ public class OrderItem implements Serializable {
         id.setProduct(product);
     }
 
-
+    @Autowired
     public Order getOrder(){
         return id.getOrder();
     }
+
+    @Autowired
     public void setOrder(Order order){
         id.setOrder(order);
     }
 
+    @Autowired
     public Product getProduct(){
         return id.getProduct();
     }
+
+    @Autowired
     public void setProduct(Product product){
         id.setProduct(product);
     }

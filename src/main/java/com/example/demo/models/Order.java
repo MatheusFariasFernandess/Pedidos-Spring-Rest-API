@@ -44,13 +44,7 @@ public class Order implements Serializable{
         this.moment = moment;
         this.client = client;
     }
-
     
-    public Order(Long id, User client) {
-        this.id = id;
-        this.client = client;
-    }
-
 
     public Long getid() {
         return this.id;
