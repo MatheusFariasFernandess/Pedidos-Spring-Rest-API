@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.example.demo.interfaces.PaymentType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -26,8 +27,7 @@ public class Order implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
-     
+    private Long id;   
     private Instant moment;
 
     @ManyToOne
