@@ -48,19 +48,19 @@ public class TestConfig implements CommandLineRunner {
         // List<Adress> adresses = new ArrayList<Adress>();
         // adresses.add(new Adress(148L,"Groove Street"));
         
-        Adress adresses = new Adress(18L,"greoove");
+        Adress adresses = new Adress("Miami city",18L,"greoove");
         adressService.save(adresses);
-        
+
         User user = new User(1L,"matheus","@hotmail.com","9898223","147852",adresses);
         Product product=  new Product(2L,"GTX980","MUITO BOA",980.88); 
         Order order = new Order(1L,Instant.now(),user);
-        // OrderItem orderItem = new OrderItem(order,product,50,product.getPrice(),new TransportCompanyShipping(null,"ExpressShippingUSA"));
+        //  OrderItem orderItem = new OrderItem(order,product,50,product.getPrice(),new TransportCompanyShipping(null,"ExpressShippingUSA"));
 
         userService.saveUser(user); 
         orderService.save(order);
         productService.saveProduct(product);
      
-        //  orderItemService.save(orderItem);
+        //   orderItemService.save(orderItem);
 
     }
     

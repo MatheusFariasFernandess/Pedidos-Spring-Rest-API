@@ -7,9 +7,12 @@ import com.example.demo.interfaces.TransportCompany;
 import com.example.demo.models.modelsPK.OrderItemPK;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 
 

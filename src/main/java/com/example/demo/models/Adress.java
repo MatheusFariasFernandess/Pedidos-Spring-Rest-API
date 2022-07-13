@@ -24,13 +24,16 @@ public class Adress implements Serializable{
     @JoinColumn(name = "user_id")
     private User userId;
 
+    private String city;
+
     private Long homeNumber;
 
     private String streetName;
 
     public Adress(){}    
 
-    public Adress(Long homeNumber,String streetName){
+    public Adress(String city,Long homeNumber,String streetName){
+        this.city=city;    
         this.homeNumber=homeNumber;
         this.streetName=streetName;
     }
@@ -63,4 +66,10 @@ public class Adress implements Serializable{
         this.streetName = streetName;
     }
 
+    public void setCity(String city){
+        this.city=city;
+    }
+    public String city(){
+        return city;
+    }
 }

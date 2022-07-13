@@ -6,17 +6,22 @@ import com.example.demo.models.Order;
 import com.example.demo.models.Product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.annotation.Generated;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Embeddable
 public class OrderItemPK implements Serializable{
-     
+
+    // @GeneratedValue(strategy = GenerationType.AUTO)
     @ManyToOne
     @JoinColumn(name = "order_id")
      private Order order;
 
+    //  @GeneratedValue(strategy = GenerationType.AUTO)
      @ManyToOne
      @JoinColumn(name = "product_id")
      private Product product;  
