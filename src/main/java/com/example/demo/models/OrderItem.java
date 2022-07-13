@@ -3,6 +3,8 @@ package com.example.demo.models;
 import java.io.Serializable;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.models.modelsPK.OrderItemPK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -20,8 +22,11 @@ public class OrderItem implements Serializable {
 
     private Double price;
 
+    private Double totalPrice;
+
     public OrderItem(){}
     
+    @Autowired
     public OrderItem(Order order,Product product,Integer quantity,Double price){
         this.quantity=quantity;
         this.price=price;
@@ -29,22 +34,18 @@ public class OrderItem implements Serializable {
         id.setProduct(product);
     }
 
-    @Autowired
     public Order getOrder(){
         return id.getOrder();
     }
 
-    @Autowired
     public void setOrder(Order order){
         id.setOrder(order);
     }
 
-    @Autowired
     public Product getProduct(){
         return id.getProduct();
     }
 
-    @Autowired
     public void setProduct(Product product){
         id.setProduct(product);
     }
@@ -62,11 +63,11 @@ public class OrderItem implements Serializable {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
-
     /**
      * @return Double return the price
      */
     public Double getPrice() {
+        
         return price;
     }
 
@@ -77,4 +78,12 @@ public class OrderItem implements Serializable {
         this.price = price;
     }
 
+    public void setTotalPayment(TransportCompanyMail transportCompanyMail){
+        transportCompanyMail = new TransportCompanyMail();
+        this.totalPrice = (quantity * price)+ transportCompanyMail.frete();   
+    }
+
+    public double getTotalPayment(){
+        return this.totalPrice;
+    }
 }

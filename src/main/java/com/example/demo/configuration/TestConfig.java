@@ -42,18 +42,19 @@ public class TestConfig implements CommandLineRunner {
     
     @Override
     public void run(String... args) throws Exception {
+        
         List<Adress> adresses = new ArrayList<Adress>();
         adresses.add(new Adress(148L,"Groove Street"));
         User user = new User(1L,"matheus","@hotmail.com","9898223","147852",adresses);
         Order order = new Order(1L,Instant.now(),user);
         Product product=  new Product(2L,"GTX980","MUITO BOA",980.88); 
-        
-        // adressService.saveAll(adresses);
+      
+        // OrderItem orderItem = new OrderItem(order,product,50,product.getPrice());
+
         userService.saveUser(user); 
         orderService.save(order);
         productService.saveProduct(product);
        
-        // OrderItem orderItem = new OrderItem(order,product,50,product.getPrice());
 
         // orderItemService.save(orderItem);
 

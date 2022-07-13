@@ -4,10 +4,12 @@ import java.io.Serializable;
 
 import com.example.demo.models.Order;
 import com.example.demo.models.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+
 @Embeddable
 public class OrderItemPK implements Serializable{
      
@@ -22,6 +24,7 @@ public class OrderItemPK implements Serializable{
     /**
      * @return Order return the order
      */
+    
     public Order getOrder() {
         return order;
     }

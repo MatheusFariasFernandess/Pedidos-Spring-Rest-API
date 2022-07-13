@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hibernate.type.OrderedMapType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.interfaces.PaymentType;
@@ -33,7 +34,7 @@ public class Order implements Serializable{
     @ManyToOne
     @JoinColumn(name="client_id")
     private User client;
-
+    
     @OneToMany(mappedBy = "id.order")
     private Set<OrderItem>orderItem = new HashSet<OrderItem>();
 
@@ -87,7 +88,12 @@ public class Order implements Serializable{
         return id.hashCode();
     }
 
+    @JsonIgnore
     public Set<OrderItem> getOrderItem(){
         return orderItem;
     }
+
+    
+
+
 }

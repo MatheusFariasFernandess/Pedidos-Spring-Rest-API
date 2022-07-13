@@ -6,18 +6,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class TransportCompany {
+public class TransportCompanyShipping {
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE)
         private Long id;        
 
         private String name;
 
-        public TransportCompany(){}
+        public TransportCompanyShipping(){}
 
-        
-
-        public TransportCompany(Long id,String name){
+        public TransportCompanyShipping(Long id,String name){
             this.id=id;
             this.name=name;
         }
@@ -50,4 +48,7 @@ public class TransportCompany {
         this.name = name;
     }
 
+    public double frete(){
+        return 165;
+    }
 }
