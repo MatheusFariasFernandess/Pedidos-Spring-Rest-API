@@ -5,15 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.annotation.Generated;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,8 +30,11 @@ public class User implements Serializable{
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @OneToMany(mappedBy = "userId")
-    private List<Adress>adresses = new ArrayList<Adress>();
+    // @OneToOne(mappedBy = "userId")
+    @OneToOne(cascade = {CascadeType.ALL})
+    //  private List<Adress>adresses = new ArrayList<Adress>();
+    @Autowired
+    private Adress adresses;
     
     private String username;
     private String email;
@@ -40,13 +47,14 @@ public class User implements Serializable{
 
     public User(){}
 
-    public User(Long id, String username, String email, String phone, String password,List<Adress> adresses) {
+    public User(Long id, String username, String email, String phone, String password,Adress adresses) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.phone = phone;
         this.adresses=adresses;
         this.password = password;
+        // this.adresses=adresses;
     }
 
     public Long getId() {
@@ -93,7 +101,11 @@ public class User implements Serializable{
         return orders;
     }
 
-    public List<Adress> getAdress(){
+    // public List<Adress> getAdress(){
+    //     return adresses;
+    // }
+
+    public Adress getAdress(){
         return adresses;
     }
     

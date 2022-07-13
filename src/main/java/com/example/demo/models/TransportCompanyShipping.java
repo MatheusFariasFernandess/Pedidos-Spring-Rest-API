@@ -1,12 +1,14 @@
 package com.example.demo.models;
 
+import com.example.demo.interfaces.TransportCompany;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class TransportCompanyShipping {
+public class TransportCompanyShipping implements TransportCompany{
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE)
         private Long id;        
@@ -48,6 +50,7 @@ public class TransportCompanyShipping {
         this.name = name;
     }
 
+    @Override
     public double frete(){
         return 165;
     }

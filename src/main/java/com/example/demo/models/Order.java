@@ -88,7 +88,7 @@ public class Order implements Serializable{
         return id.hashCode();
     }
 
-    @JsonIgnore
+    
     public Set<OrderItem> getOrderItem(){
         return orderItem;
     }

@@ -11,8 +11,8 @@ import com.example.demo.repository.AdressRepository;
 
 @Service
 public class AdressService {
-        @Autowired
-        AdressRepository adressService;
+    @Autowired
+    AdressRepository adressService;
 
     public void save(Adress adress){
         adressService.save(adress);
