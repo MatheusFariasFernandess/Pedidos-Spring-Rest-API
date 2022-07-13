@@ -3,6 +3,7 @@ package com.example.demo.models;
 import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
@@ -38,6 +39,51 @@ public class Adress implements Serializable{
         this.streetName=streetName;
     }
 
+    
+
+
+    /**
+     * @return Integer return the id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * @return User return the userId
+     */
+    public User getUserId() {
+        return userId;
+    }
+
+    /**
+     * @param userId the userId to set
+     */
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
+
+    /**
+     * @return String return the city
+     */
+    public String getCity() {
+        return city;
+    }
+
+    /**
+     * @param city the city to set
+     */
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     /**
      * @return Long return the homeNumber
      */
@@ -55,21 +101,15 @@ public class Adress implements Serializable{
     /**
      * @return String return the streetName
      */
-    public String getStreeName() {
+    public String getStreetName() {
         return streetName;
     }
 
     /**
      * @param streetName the streetName to set
      */
-    public void setStreeName(String streetName) {
+    public void setStreetName(String streetName) {
         this.streetName = streetName;
     }
 
-    public void setCity(String city){
-        this.city=city;
-    }
-    public String city(){
-        return city;
-    }
 }
