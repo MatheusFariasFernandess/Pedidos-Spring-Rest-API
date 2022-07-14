@@ -7,6 +7,7 @@ import com.example.demo.interfaces.TransportCompany;
 import com.example.demo.models.modelsPK.OrderItemPK;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -27,11 +28,9 @@ public class OrderItem implements Serializable {
     private Double totalPrice;
 
     public OrderItem(){}
-    
-    
 
     @Autowired
-    public OrderItem(Order order,Product product,Integer quantity,Double price,TransportCompany transportCompany){
+     public OrderItem(Order order,Product product,Integer quantity,Double price,TransportCompany transportCompany){
         this.quantity=quantity;
         this.price=price;
         id.setOrder(order);
@@ -94,6 +93,9 @@ public class OrderItem implements Serializable {
     return setTotalPrice();
    }
 
+//    public void setTotalPrice(TransportCompany transportCompany){
+//       this.totalPrice = quantity * price + transportCompany.frete();
+//    }
     
 
 }
