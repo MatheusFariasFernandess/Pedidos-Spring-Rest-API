@@ -5,12 +5,8 @@ import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hibernate.type.OrderedMapType;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.demo.interfaces.PaymentType;
 import com.example.demo.models.DTO.UserDTO;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -48,6 +44,11 @@ public class Order implements Serializable{
         this.client = client;
     }
     
+    
+        public UserDTO getCliente() {
+            UserDTO userDTO= new UserDTO(client);
+            return userDTO;
+        }
 
     public Long getid() {
         return this.id;
@@ -63,11 +64,6 @@ public class Order implements Serializable{
 
     public void setMoment(Instant moment) {
         this.moment = moment;
-    }
-
-    public UserDTO getCliente() {
-        UserDTO userDTO= new UserDTO(client);
-        return userDTO;
     }
 
     public void setCliente(User client) {

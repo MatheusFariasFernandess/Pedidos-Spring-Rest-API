@@ -49,10 +49,12 @@ public class TestConfig implements CommandLineRunner {
         // adresses.add(new Adress(148L,"Groove Street"));
         
         Adress adresses = new Adress("Miami city",18L,"Miami streets");
-        adressService.save(adresses);
-        
+        adressService.save(adresses);      
+
         User user = new User(2L,"matheus","@hotmail.com","9898223","147852",adresses);
+        
         Product product=  new Product(2L,"GTX980","MUITO BOA",980.88); 
+        
         Order order = new Order(1L,Instant.now(),user);
         
         
@@ -61,12 +63,12 @@ public class TestConfig implements CommandLineRunner {
         productService.saveProduct(product);
      
         try{
-        OrderItem orderItem = new OrderItem(order,product,50,product.getPrice(),new TransportCompanyShipping(null,"ExpressShippingUSA"));
+        OrderItem orderItem = new OrderItem(order,product,50,product.getPrice(),new TransportCompanyShipping(1L,"ExpressShippingUSA"));
+        orderItemService.save(orderItem);
         }
         catch(NullPointerException e){
             System.out.println(e);
         } 
-        //   orderItemService.save(orderItem);
 
     }
     

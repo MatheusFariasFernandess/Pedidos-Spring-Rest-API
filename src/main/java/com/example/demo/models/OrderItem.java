@@ -7,12 +7,8 @@ import com.example.demo.interfaces.TransportCompany;
 import com.example.demo.models.modelsPK.OrderItemPK;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.annotation.Generated;
-import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 
 
@@ -32,6 +28,8 @@ public class OrderItem implements Serializable {
 
     public OrderItem(){}
     
+    
+
     @Autowired
     public OrderItem(Order order,Product product,Integer quantity,Double price,TransportCompany transportCompany){
         this.quantity=quantity;
@@ -48,7 +46,7 @@ public class OrderItem implements Serializable {
     }
 
     public void setOrder(Order order){
-        id.setOrder(order);
+        this.id.setOrder(order);
     }
 
     public Product getProduct(){
@@ -56,7 +54,7 @@ public class OrderItem implements Serializable {
     }
 
     public void setProduct(Product product){
-        id.setProduct(product);
+        this.id.setProduct(product);
     }
     /**
      * @return Integer return the quantity
@@ -69,6 +67,8 @@ public class OrderItem implements Serializable {
      * @param quantity the quantity to set
      */
     public void setQuantity(Integer quantity) {
+        
+
         this.quantity = quantity;
     }
     /**
@@ -93,10 +93,6 @@ public class OrderItem implements Serializable {
    public Double getTotalprice(){
     return setTotalPrice();
    }
-
-    //  public Double getTotalPrice(TransportCompany transportCompany){
-    //      return  quantity * price + transportCompany.frete();
-    //  }
 
     
 
