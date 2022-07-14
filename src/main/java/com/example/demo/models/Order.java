@@ -9,6 +9,7 @@ import org.hibernate.type.OrderedMapType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.interfaces.PaymentType;
+import com.example.demo.models.DTO.UserDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -64,14 +65,18 @@ public class Order implements Serializable{
         this.moment = moment;
     }
 
-    // public User getCliente() {
-    //     return this.client;
-    // }
+    public UserDTO getCliente() {
+        UserDTO userDTO= new UserDTO(client);
+        return userDTO;
+    }
 
-    // public void setCliente(User client) {
-    //     this.client = client;
-    // }
+    public void setCliente(User client) {
+        this.client = client;
+    }
     
+    public Set<OrderItem> getOrderItem(){
+        return orderItem;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -90,9 +95,6 @@ public class Order implements Serializable{
     }
 
     
-    public Set<OrderItem> getOrderItem(){
-        return orderItem;
-    }
 
     
 

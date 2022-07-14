@@ -19,7 +19,7 @@ public class Adress implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -43,32 +43,32 @@ public class Adress implements Serializable{
 
 
     /**
-     * @return Integer return the id
+     * @return Long return the id
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     * @return User return the userId
-     */
-    public User getUserId() {
-        return userId;
-    }
+    // /**
+    //  * @return User return the userId
+    //  */
+    // public User getUserId() {
+    //     return userId;
+    // }
 
-    /**
-     * @param userId the userId to set
-     */
-    public void setUserId(User userId) {
-        this.userId = userId;
-    }
+    // /**
+    //  * @param userId the userId to set
+    //  */
+    // public void setUserId(User userId) {
+    //     this.userId = userId;
+    // }
 
     /**
      * @return String return the city

@@ -4,6 +4,7 @@ package com.example.demo.models.DTO;
 
 import java.io.Serializable;
 
+import com.example.demo.models.Adress;
 import com.example.demo.models.User;
 
 import jakarta.annotation.Generated;
@@ -21,6 +22,10 @@ public class UserDTO implements Serializable {
 
     private String username;
 
+    private Adress adress;
+
+    private String email;
+
     public UserDTO(){}
 
     public UserDTO(Long id,String username){
@@ -31,6 +36,16 @@ public class UserDTO implements Serializable {
     public UserDTO(User user){
          this.id=user.getId();
          this.username=user.getUsername();
+         this.adress= user.getAdress();
+         this.email= user.getEmail();
+    }
+
+    public Adress getAdress(){
+        return adress;
+    }
+    
+    public String getEmail(){
+        return email;
     }
 
     /**

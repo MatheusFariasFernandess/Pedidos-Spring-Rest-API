@@ -28,7 +28,7 @@ public class OrderItem implements Serializable {
 
     private Double price;
 
-    // private Double totalPrice;
+    private Double totalPrice;
 
     public OrderItem(){}
     
@@ -38,7 +38,8 @@ public class OrderItem implements Serializable {
         this.price=price;
         id.setOrder(order);
         id.setProduct(product);
-        setTotalPrice(transportCompany);
+        // getTotalPrice(transportCompany);
+       
     }
 
     @JsonIgnore
@@ -85,11 +86,18 @@ public class OrderItem implements Serializable {
         this.price = price;
     }
 
-    public Double setTotalPrice(TransportCompany transportCompany){
-        return  (quantity * price)+ transportCompany.frete();
-    }
+   public Double setTotalPrice(){
+     return quantity * price;
+   }
+    
+   public Double getTotalprice(){
+    return setTotalPrice();
+   }
 
-    // public double getTotalPayment() {
-    //     return this.totalPrice;
-    // }
+    //  public Double getTotalPrice(TransportCompany transportCompany){
+    //      return  quantity * price + transportCompany.frete();
+    //  }
+
+    
+
 }
