@@ -31,8 +31,8 @@ public class User implements Serializable{
     private Long id;
 
     // @OneToOne(mappedBy = "userId")
-    @OneToOne(cascade = {CascadeType.ALL})
     //  private List<Adress>adresses = new ArrayList<Adress>();
+    @OneToOne(cascade = {CascadeType.ALL})
     @Autowired
     private Adress adresses;
     

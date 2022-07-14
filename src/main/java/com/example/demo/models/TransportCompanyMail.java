@@ -9,21 +9,20 @@ import jakarta.persistence.Id;
 
 @Entity
 public class TransportCompanyMail implements TransportCompany {
-        @Id
-        @GeneratedValue(strategy = GenerationType.SEQUENCE)
-        private Long id;        
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
-        private String name;
+    private String name;
 
-        public TransportCompanyMail(){}
+    public TransportCompanyMail() {
+    }
 
-        
+    public TransportCompanyMail(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
-        public TransportCompanyMail(Long id,String name){
-            this.id=id;
-            this.name=name;
-        }
-     
     /**
      * @return Long return the id
      */
@@ -53,7 +52,7 @@ public class TransportCompanyMail implements TransportCompany {
     }
 
     @Override
-    public double frete(){
+    public double frete() {
         return 75;
     }
 }

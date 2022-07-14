@@ -31,6 +31,7 @@ public class Order implements Serializable{
     private Long id;   
     private Instant moment;
 
+    
     @ManyToOne
     @JoinColumn(name="client_id")
     private User client;
@@ -63,13 +64,13 @@ public class Order implements Serializable{
         this.moment = moment;
     }
 
-    public User getCliente() {
-        return this.client;
-    }
+    // public User getCliente() {
+    //     return this.client;
+    // }
 
-    public void setCliente(User client) {
-        this.client = client;
-    }
+    // public void setCliente(User client) {
+    //     this.client = client;
+    // }
     
 
     @Override

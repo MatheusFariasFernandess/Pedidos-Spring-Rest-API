@@ -21,9 +21,9 @@ public class Adress implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    // @ManyToOne
-    // @JoinColumn(name = "user_id")
-    // private User userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User userId;
 
     private String city;
 
@@ -56,19 +56,19 @@ public class Adress implements Serializable{
         this.id = id;
     }
 
-    // /**
-    //  * @return User return the userId
-    //  */
-    // public User getUserId() {
-    //     return userId;
-    // }
+    /**
+     * @return User return the userId
+     */
+    public User getUserId() {
+        return userId;
+    }
 
-    // /**
-    //  * @param userId the userId to set
-    //  */
-    // public void setUserId(User userId) {
-    //     this.userId = userId;
-    // }
+    /**
+     * @param userId the userId to set
+     */
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
 
     /**
      * @return String return the city

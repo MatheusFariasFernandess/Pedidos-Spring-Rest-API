@@ -19,7 +19,7 @@ public class OrderItemPK implements Serializable{
     // @GeneratedValue(strategy = GenerationType.AUTO)
     @ManyToOne
     @JoinColumn(name = "order_id")
-     private Order order;
+    private Order order;
 
     //  @GeneratedValue(strategy = GenerationType.AUTO)
      @ManyToOne
